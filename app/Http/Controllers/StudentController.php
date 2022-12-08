@@ -16,6 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
+
         return view('students.index',['students' => $students]);
     }
 
@@ -37,7 +38,40 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        echo "Studentas išsaugotas";
+
+        // {{-- save.php --}}
+        // {{-- 1. POST/GET pasiimdavo duomenis $_POST['input_laukelio_vardas'] --}}
+        // {{-- 2. Sudedavome i uzklausa. INSERT INTO --}}
+        // {{-- 3. uzklausa isiusdavom i duombaz --}}
+        // {{-- 4. Jei sekmingai, grazinam i index.php --}}
+        //|
+        //V
+        // 1. sukuriame nauja Studento objekta x
+        // 2. su POST pasiimame duomenis. $request x
+        // 3.Studento objekta uzpildome duomenis is $request x
+        // 4. issaugome i duombaze x
+        // 5. graziname i index kelia 
+
+        $student = new Student; //naujas studento objektas pagal modeli. Iskarto perduodame duomenis modeliui
+        // $_POST arba $_GET  -nesikreipia. $request
+        // $student - asociatyvus masyvas
+        // $student['name'] = $name;
+
+        // request('name') ten kur neturime $request objekto
+        // i vaizda tiesiai parodyti request kintamaji. $request objekto neturim, request('name')
+        // greitaveikos ir saugumo
+        $student->name = $request->name; //request('name')
+        $student->surname = $request->surname;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        $student->project = $request->project;
+
+        $student->save(); //issaugo i duombaze. INSERT INTO
+
+        //header ('Location: index.php'); - nenaudojama,
+
+        return redirect()->route('students.index');
+
     }
 
     /**

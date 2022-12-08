@@ -12,6 +12,10 @@
 
     {{-- method - POST  --}}
     {{--  veiksmas - kelias iki controller metodo store metodo --}}
+    {{-- save.php --}}
+    {{-- 1. POST/GET pasiimdavo duomenis $_POST['input_laukelio_vardas'] --}}
+    {{-- 2. Sudedavome i uzklausa. INSERT INTO --}}
+    {{-- 3. uzklausa isiusdavom i duombaz --}}
     <form method='POST' action='{{ route('students.store') }}'>
         
         @csrf
