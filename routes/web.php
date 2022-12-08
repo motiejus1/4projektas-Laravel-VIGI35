@@ -24,3 +24,12 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 //Sukurimo formos duomenų išsaugojimas
 Route::post('/students/store', [StudentController::class, 'store'])->name('students.store');
 
+//Trynimas
+
+
+
+
+
+Route::post('/students/destroy/{student}',[StudentController::class, 'destroy'])->name('students.destroy');
+Route::get('/students/show/{student}', [StudentController::class, 'show'])->name('students.show');
+

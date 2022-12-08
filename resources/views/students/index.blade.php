@@ -15,6 +15,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Project</th>
+            <th>Actions</th>
         </tr>
         @foreach($students as $student)
              <tr>
@@ -24,10 +25,23 @@
                 <td>{{$student->email}}</td>
                 <td>{{$student->phone}}</td>
                 <td>{{$student->project}}</td>
+                <td>
+                    {{-- kelias --}}
+                    <form action='{{route('students.destroy', $student->id)}}' method="POST">
+                        @csrf
+                        <button type="submit">Delete</button>
+                    </form>
+                    <a href='{{route('students.show',$student->id)}}'>Show</a>
+                </td>
              </tr>   
         @endforeach
 
-       
-    </table>
+
+<pre>
+   
+        test\ntest
+    
+</pre>   
+
 </body>
-</html>
+</html>      

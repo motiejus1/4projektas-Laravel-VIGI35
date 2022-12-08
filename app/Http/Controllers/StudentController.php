@@ -77,12 +77,25 @@ class StudentController extends Controller
     /**
      * Display the specified resource.
      *
+     * GET
+     * reikalingas view
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
     public function show(Student $student)
     {
+        //Specifinis studentas $student.
+        //Mes sita student norime parodyti show.blade.php
         //
+        // $tekstas = "Test\nTest";
+        // \n - tarpa
+        //echo $tekstas;
+
+        //
+
+
+        return view('students.show',['student' => $student]);
+
     }
 
     /**
@@ -116,6 +129,11 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+
+        //dd($student);
+        $student->delete(); //modeliui davem instrukcija istrinti is duombazes
+        return redirect()->route('students.index');
+        // PASIRINKTI SPECIFINI STUDENTA
+        //istrinti
     }
 }

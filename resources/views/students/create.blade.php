@@ -18,7 +18,7 @@
     {{-- 3. uzklausa isiusdavom i duombaz --}}
     <form method='POST' action='{{ route('students.store') }}'>
         
-        @csrf
+     @csrf
         <input type="text" name="name" placeholder="Name">
         <input type="text" name="surname" placeholder="Surname">
         <input type="text" name="email" placeholder="Email">
@@ -26,6 +26,10 @@
         <input type="text" name="project" placeholder="Project">
         <button type="submit">Save</button>
     </form>
+
+    {{-- show() --}}
+    {{-- delete() --}}
+
 
 </body>
 </html>
