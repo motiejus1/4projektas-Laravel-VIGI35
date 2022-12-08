@@ -18,4 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/students/index', [StudentController::class, 'index']);
+Route::get('/students/index', [StudentController::class, 'index'])->name('students.index');
+//Sukurimo formos rodymas
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
+//Sukurimo formos duomenų išsaugojimas
+Route::post('/students/store', [StudentController::class, 'store'])->name('students.store');
+
